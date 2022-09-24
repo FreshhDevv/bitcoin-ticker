@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData.dark().copyWith(
         primaryColor: Colors.deepPurple,
-        scaffoldBackgroundColor: Colors.white,
+        scaffoldBackgroundColor: Colors.grey,
       ),
       home: PriceScreen(),
     );
