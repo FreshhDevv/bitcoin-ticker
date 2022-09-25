@@ -26,6 +26,7 @@ class _PriceScreenState extends State<PriceScreen> {
     getDropdownItems();
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black12,
         title: Text('🤑 Coin Ticker'),
       ),
       body: Column(
@@ -35,7 +36,7 @@ class _PriceScreenState extends State<PriceScreen> {
           Padding(
             padding: EdgeInsets.fromLTRB(18.0, 18.0, 18.0, 0),
             child: Card(
-              color: Colors.blueGrey,
+              color: Colors.black45,
               elevation: 5.0,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
@@ -57,7 +58,7 @@ class _PriceScreenState extends State<PriceScreen> {
             height: 150.0,
             alignment: Alignment.center,
             padding: EdgeInsets.only(bottom: 30.0),
-            color: Colors.blueGrey,
+            color: Colors.black38,
             child: DropdownButton<String>(
               value: selectedCurrency,
               items: getDropdownItems(),

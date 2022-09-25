@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData.dark().copyWith(
-        primaryColor: Colors.deepPurple,
+        // primaryColor: Colors.deepPurple,
         scaffoldBackgroundColor: Colors.grey,
       ),
       home: PriceScreen(),
