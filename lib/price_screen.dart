@@ -1,7 +1,10 @@
 import 'package:bitcoin_ticker/coin_data.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PriceScreen extends StatefulWidget {
+  const PriceScreen({Key? key}) : super(key: key);
+
   @override
   _PriceScreenState createState() => _PriceScreenState();
 }
@@ -19,6 +22,16 @@ class _PriceScreenState extends State<PriceScreen> {
       dropDownItems.add(newItem);
     }
     return dropDownItems;
+  }
+
+  List<Text> getPickerItems() {
+    List<Text> pickerItems = [];
+    for (String currency in currenciesList) {
+      pickerItems.add(
+        Text(currency),
+      );
+    }
+    return pickerItems;
   }
 
   @override
@@ -41,7 +54,7 @@ class _PriceScreenState extends State<PriceScreen> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
               ),
-              child: Padding(
+              child: const Padding(
                 padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 28.0),
                 child: Text(
                   '1 BTC = ? USD',
@@ -59,14 +72,12 @@ class _PriceScreenState extends State<PriceScreen> {
             alignment: Alignment.center,
             padding: EdgeInsets.only(bottom: 30.0),
             color: Colors.black38,
-            child: DropdownButton<String>(
-              value: selectedCurrency,
-              items: getDropdownItems(),
-              onChanged: (value) {
-                setState(() {
-                  selectedCurrency = value!;
-                });
+            child: CupertinoPicker(
+              itemExtent: 32.0,
+              onSelectedItemChanged: (selectedIndex) {
+                print(selectedIndex);
               },
+              children: getPickerItems(),
             ),
           ),
         ],
@@ -74,3 +85,13 @@ class _PriceScreenState extends State<PriceScreen> {
     );
   }
 }
+
+// DropdownButton<String>(
+// value: selectedCurrency,
+// items: getDropdownItems(),
+// onChanged: (value) {
+// setState(() {
+// selectedCurrency = value!;
+// });
+// },
+// )
