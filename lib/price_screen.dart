@@ -65,7 +65,7 @@ class _PriceScreenState extends State<PriceScreen> {
       double data = await CoinData().getCoinData(selectedCurrency);
       // We can't await in a setState(). So you have to separate it out into two steps.
       setState(() {
-        bitcoinValue = data as String;
+        bitcoinValue = data.toStringAsFixed(0);
       });
     } catch (e) {
       print(e);
